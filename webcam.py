@@ -1,5 +1,4 @@
 import cv2
-import pubsub
 from threading import Thread
 import numpy as np
 from datetime import datetime
@@ -20,8 +19,6 @@ class Webcam:
         self.vid_cod = cv2.VideoWriter_fourcc(*'XVID')
         self.parent_dir = r'D:\AMBIENT videos'
         self.timeout = timeout
-
-    def begin(self):
         self.t.start()
 
     def threaded_capture(self):
@@ -67,7 +64,6 @@ class Webcam:
 
 if __name__ == '__main__':
     cam = Webcam(0)
-    cam.begin()
     time.sleep(1)
     cam.start_record(5)
     time.sleep(60)
