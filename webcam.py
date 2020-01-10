@@ -8,7 +8,7 @@ import time
 
 
 class Webcam:
-    def __init__(self, cam_id, display_image=True, timeout=30):
+    def __init__(self, cam_id, display_image=True):
         self.cam_id = cam_id
         self.cap = cv2.VideoCapture(cam_id)
         self.display_image = display_image
@@ -18,7 +18,6 @@ class Webcam:
         self.vid_captures = {}
         self.vid_cod = cv2.VideoWriter_fourcc(*'XVID')
         self.parent_dir = r'D:\AMBIENT videos'
-        self.timeout = timeout
         self.t.start()
 
     def threaded_capture(self):
