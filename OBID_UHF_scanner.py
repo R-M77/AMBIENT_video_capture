@@ -18,7 +18,7 @@ class TagScanner:
 
             sleep(0.1)
 
-    def simulate_read(self, antenna, tag):
+    def simulate_scan(self, antenna, tag):
         self.q.put((antenna, tag))
 
 
@@ -29,14 +29,14 @@ def listener(antenna, tag):
 if __name__ == '__main__':
     scanner = TagScanner()
     pub.subscribe(listener, 'TagScan')
-    scanner.simulate_read(2, 4)
+    scanner.simulate_scan(2, 4)
     sleep(1)
-    scanner.simulate_read(4, 14)
-    scanner.simulate_read(6, 423)
-    scanner.simulate_read(287, 4324)
+    scanner.simulate_scan(4, 14)
+    scanner.simulate_scan(6, 423)
+    scanner.simulate_scan(287, 4324)
     sleep(2)
-    scanner.simulate_read(1, 40)
+    scanner.simulate_scan(1, 40)
     sleep(1)
-    scanner.simulate_read(25645, 121)
-    scanner.simulate_read(12, 5660)
+    scanner.simulate_scan(25645, 121)
+    scanner.simulate_scan(12, 5660)
     sleep(3)

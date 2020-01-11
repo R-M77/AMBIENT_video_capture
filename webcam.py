@@ -23,7 +23,8 @@ class Webcam:
     def threaded_capture(self):
         while True:
             ret, self.frame = self.cap.read()
-            print(self.frame.shape)
+            if not ret:
+                continue
             cv2.imshow(f'camera {self.cam_id}', self.frame)
             if self.vid_captures:
                 for tag in self.vid_captures:
