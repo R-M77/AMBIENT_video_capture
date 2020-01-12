@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 import os
 import time
+from pprint import pprint
 
 
 class Webcam:
@@ -27,6 +28,7 @@ class Webcam:
                 continue
             cv2.imshow(f'camera {self.cam_id}', self.frame)
             if self.vid_captures:
+                print(self.vid_captures)
                 for tag in self.vid_captures:
                     self.vid_captures[tag].write(self.frame)
 
@@ -39,14 +41,20 @@ class Webcam:
         file_name = self.generate_file_path(tag_id)
         output = cv2.VideoWriter(file_name, self.vid_cod, 30.0, (640, 480))
         self.vid_captures[tag_id] = output
+        print('at start:')
+        pprint(self.vid_captures)
         pass
 
     def stop_record(self, tag_id):
+        print('Vid captures during stop before try:', self.vid_captures)
         try:
+            print('at stop')
+            pprint(self.vid_captures)
+            print('stopping video tag', tag_id)
             self.vid_captures[tag_id].release()
             self.vid_captures.pop(tag_id, None)
         except KeyError:
-            pass
+            print('key error:', tag_id)
 
     def generate_file_path(self, tag_id):
         folder_path = self.create_date_folder()
@@ -66,5 +74,8 @@ if __name__ == '__main__':
     cam = Webcam(0)
     time.sleep(1)
     cam.start_record(5)
-    time.sleep(60)
+    cam.start_record(8)
+    time.sleep(1)
+    cam.stop_record(8)
+    time.sleep(1)
     cam.stop_record(5)
