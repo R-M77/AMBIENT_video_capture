@@ -12,14 +12,15 @@ class PeripheralManager:
 
         # {antenna_number: webcam}
         self.antenna_cam_pair = {0: self.camera1, 1: self.camera1, 2: self.camera2, 3: self.camera2}
-        self.timeout = timeout
+        self.walk_timeout = timeout
+        self.cue_timeout = 5
+        self.repeated_scan_timeout = 0.5
+
         # {tag_number: {startTime: datetime, startAntenna: int, cued: bool, exitAntenna: int}}
         self.active_recordings = {}
         self.timeout_check_thread = Thread(target=self.threaded_timeout_check, daemon=True)
         self.ra_tags = [0, 2]
         self.ra_tag_scan_time = {self.camera1: datetime(1, 1, 1), self.camera2: datetime(1, 1, 1)}
-        self.cue_timeout = 5
-        self.repeated_scan_timeout = 0.5
 
         self.df_history = pd.DataFrame({'startTime': [],
                                         'startAntenna': [],
@@ -35,8 +36,11 @@ class PeripheralManager:
         now = datetime.now()
         if self.active_recordings:
             for tag in self.active_recordings:
-                if abs((now - self.active_recordings[tag]['startTime']).total_seconds()) > self.timeout:
+                if abs((now - self.active_recordings[tag]['startTime']).total_seconds()) > self.walk_timeout:
                     self.stop_record(None, tag)
+                if self.active_recordings[tag]['endTime'] is not None:
+                    if abs((now - self.active_recordings[tag]['endTime']).total_seconds()) > self.repeated_scan_timeout:
+                        self.active_recordings.pop(tag, None)
 
     def rfid_receiver(self, antenna, tag):
         print(f'Received scan from antenna {antenna}, tag {tag}')
@@ -70,8 +74,8 @@ class PeripheralManager:
         else:
             # if the tag was recently scanned, we assume that the RFID has had a chance to scan it multiple times
             # before the participant can exit its range
-            if abs((datetime.now() - self.active_recordings[tag][
-                'recentScan']).total_seconds()) < self.repeated_scan_timeout:
+            if abs((datetime.now() - self.active_recordings[tag]['recentScan']).total_seconds())\
+                    < self.repeated_scan_timeout:
                 self.active_recordings[tag]['recentScan'] = datetime.now()
             else:
                 self.stop_record(antenna, tag)
@@ -86,7 +90,7 @@ class PeripheralManager:
         self.active_recordings[tag]['endTime'] = datetime.now()
         self.active_recordings[tag]['exitAntenna'] = antenna
         self.df_history = self.df_history.append(self.active_recordings[tag], ignore_index=True)
-        self.active_recordings.pop(tag, None)
+        # self.active_recordings.pop(tag, None)
         self.df_history.to_csv('output.csv')
 
 
