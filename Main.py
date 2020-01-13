@@ -5,20 +5,21 @@ import pubsub as pub
 from time import sleep
 from datetime import datetime
 import pandas as pd
+from queue import Queue
 
 scanner = TagScanner()
 manager = PeripheralManager()
 startTime = datetime.now()
 duration = 0
-# scenario = pd.DataFrame('scenario.xlsx')
+scenario = pd.read_csv('scenario.csv')
 
 while True:
-    duration = datetime.now() - startTime
-    scanner.simulate_scan(1, 5)
-    scanner.simulate_scan(1, 18)
-    sleep(2)
-    scanner.simulate_scan(3, 18)
-    sleep(1)
-    scanner.simulate_scan(3, 5)
-    sleep(0.5)
-    break
+    duration = (datetime.now() - startTime).total_seconds()
+    for i, row in scenario.iterrows():
+        if row['time'] < duration:
+            print(row)
+            scanner.simulate_scan(row['antenna'], row['tag'])
+            scenario.drop(i, inplace=True)
+
+    if len(scenario) == 0:
+        break

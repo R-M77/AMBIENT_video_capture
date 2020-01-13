@@ -28,7 +28,6 @@ class Webcam:
                 continue
             cv2.imshow(f'camera {self.cam_id}', self.frame)
             if self.vid_captures:
-                print(self.vid_captures)
                 for tag in self.vid_captures:
                     self.vid_captures[tag].write(self.frame)
 
@@ -46,11 +45,7 @@ class Webcam:
         pass
 
     def stop_record(self, tag_id):
-        print('Vid captures during stop before try:', self.vid_captures)
         try:
-            print('at stop')
-            pprint(self.vid_captures)
-            print('stopping video tag', tag_id)
             self.vid_captures[tag_id].release()
             self.vid_captures.pop(tag_id, None)
         except KeyError:
