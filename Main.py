@@ -20,6 +20,3 @@ while True:
             print(row)
             scanner.simulate_scan(row['antenna'], row['tag'])
             scenario.drop(i, inplace=True)
-
-    if len(scenario) == 0:
-        break
