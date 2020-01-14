@@ -1,0 +1,11 @@
+1 - Confirm current design with Babak -> make any necessary changes if asked
+2 - Get Linux communication with the RFID scanner
+3 - Swap out Kinect with Webcam at Lakeside
+4 - Install Linux and necessary drivers/packages on the Lakeside PCs
+5 - Switch the data collection to the new system 
+6 - Figure out video file storage/transfer 
+	* My idea is to have the computers running the cameras periodically send the data to a stronger PC on the same network (can use rsync) 
+	* The data can be grabbed with a hard drive by the RA until the next steps
+7 - Figure out how to run skeleton tracking at Lakeside to avoid the need to transfer large/confidential files 
+8 - Figure out how to remotely transfer the data to UHN network 
+9 - Data analysis (not sure if this step would be done by me or not)  
