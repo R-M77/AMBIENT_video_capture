@@ -11,7 +11,7 @@ scanner = TagScanner()
 manager = PeripheralManager()
 startTime = datetime.now()
 duration = 0
-scenario = pd.read_csv('scenario.csv')
+scenario = pd.read_csv('scenario_RA.csv')
 
 while True:
     duration = (datetime.now() - startTime).total_seconds()

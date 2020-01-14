@@ -18,7 +18,7 @@ class Webcam:
         self.frame = np.zeros((480, 640, 3), dtype='uint8')
         self.vid_captures = {}
         self.vid_cod = cv2.VideoWriter_fourcc(*'XVID')
-        self.parent_dir = r'D:\AMBIENT videos'
+        self.parent_dir = r'AMBIENT videos'
         self.t.start()
 
     def threaded_capture(self):
