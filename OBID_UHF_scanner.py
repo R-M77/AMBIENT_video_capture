@@ -17,6 +17,7 @@ class TagScanner:
 
     def threaded_scan(self):
         while True:
+            sleep(1)
             if not self.usb_keyboard.q.empty():
                 antenna_number, patient_id = self.usb_keyboard.q.get()
                 pub.sendMessage('TagScan', antenna=antenna_number, patient_id=patient_id)
@@ -96,7 +97,7 @@ class UsbKeyboard:
         usb.util.release_interface(self.dev, self.interface)
         self.dev.attach_kernel_driver(self.interface)
 
-
+'''
 def listener(antenna, patient_id):
     print(f'Antenna: {antenna}, Patient ID: {patient_id}')
 
@@ -120,3 +121,4 @@ if __name__ == '__main__':
     scanner.simulate_scan(25645, 121)
     scanner.simulate_scan(12, 5660)
     sleep(3)
+'''

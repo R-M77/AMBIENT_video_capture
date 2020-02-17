@@ -3,13 +3,15 @@ from pubsub import pub
 from datetime import datetime
 from webcam import Webcam
 import pandas as pd
+from time import sleep
 
 
 class PeripheralManager:
     def __init__(self, timeout=60):
         # camera objects for the webcams
-        self.camera1 = Webcam(0)
-        self.camera2 = Webcam(2)
+        self.camera1 = Webcam(2)
+        self.camera2 = None
+        # self.camera2 = Webcam(2)
 
         # {antenna_number: webcam}
         self.antenna_cam_pair = {0: self.camera1, 1: self.camera1, 2: self.camera2, 3: self.camera2}
@@ -54,6 +56,7 @@ class PeripheralManager:
 
     def threaded_timeout_check(self):
         while True:
+            sleep(0.1)
             now = datetime.now()
             temp_active_recordings = self.active_recordings.copy()
             if temp_active_recordings:
@@ -120,7 +123,3 @@ class PeripheralManager:
             cam.stop_record(tag)
             self.active_recordings[tag]['endTime'] = datetime.now()
             self.active_recordings[tag]['exitAntenna'] = antenna
-
-
-if __name__ == '__main__':
-    pass
