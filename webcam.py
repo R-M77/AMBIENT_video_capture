@@ -5,6 +5,7 @@ from datetime import datetime
 from pathlib import Path
 import os
 import time
+from time import sleep
 from pprint import pprint
 
 
@@ -18,7 +19,8 @@ class Webcam:
         self.frame = np.zeros((480, 640, 3), dtype='uint8')
         self.vid_captures = {}
         self.vid_cod = cv2.VideoWriter_fourcc(*'XVID')
-        self.parent_dir = r'AMBIENT videos'
+        self.parent_dir = os.path.join(os.path.expanduser('~'), 'Desktop/AMBIENT videos')
+        Path(self.parent_dir).mkdir(parents=True, exist_ok=True)
         self.t.start()
 
     def threaded_capture(self):
@@ -26,13 +28,13 @@ class Webcam:
             ret, self.frame = self.cap.read()
             if not ret:
                 continue
-            cv2.imshow(f'camera {self.cam_id}', self.frame)
+            # cv2.imshow(f'camera {self.cam_id}', self.frame)
             if self.vid_captures:
                 for tag in self.vid_captures:
                     self.vid_captures[tag].write(self.frame)
 
-            if cv2.waitKey(1) & 0xFF == ord('q'):
-                break
+            # if cv2.waitKey(1) & 0xFF == ord('q'):
+                # break
         self.cap.release()
 
     def start_record(self, tag_id):
@@ -61,16 +63,21 @@ class Webcam:
     def create_date_folder(self):
         date = datetime.now().strftime('%Y-%m-%d')
         folder_path = os.path.join(self.parent_dir, date)
+        print(folder_path)
         Path(folder_path).mkdir(parents=True, exist_ok=True)
         return folder_path
 
 
 if __name__ == '__main__':
-    cam = Webcam(0)
-    time.sleep(1)
-    cam.start_record(5)
-    cam.start_record(8)
-    time.sleep(1)
-    cam.stop_record(8)
-    time.sleep(1)
-    cam.stop_record(5)
+    cam1 = Webcam(0)
+    cam2 = Webcam(2)
+    sleep(1)
+    cam1.start_record(5)
+    cam1.start_record(8)
+    cam2.start_record(16)
+    sleep(2)
+    cam1.stop_record(8)
+    sleep(1)
+    cam2.stop_record(16)
+    sleep(2)
+    cam1.stop_record(5)
