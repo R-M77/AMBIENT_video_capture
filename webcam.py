@@ -9,6 +9,7 @@ from time import sleep
 from pprint import pprint
 from queue import Queue
 
+
 class Webcam:
     def __init__(self, cam_id):
         self.cam_id = cam_id
@@ -38,6 +39,7 @@ class Webcam:
         while True:
             ret, frame = self.cap.read()
             now = time.time()
+            # print(f'duration {self.cam_id}: {now - prev_time}')
             # print(f'FPS {self.cam_id}: {1.0/(now - prev_time)}')
             prev_time = now
 
@@ -91,10 +93,10 @@ class Webcam:
 
 if __name__ == '__main__':
     cam1 = Webcam(0)
-    # cam2 = Webcam(2)
+    cam2 = Webcam(2)
     sleep(1)
     cam1.start_record(20)
-    # cam2.start_record(18)
+    cam2.start_record(18)
     sleep(5)
     cam1.stop_record(20)
-    # cam2.stop_record(18)
+    cam2.stop_record(18)

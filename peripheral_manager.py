@@ -41,14 +41,17 @@ class PeripheralManager:
         self.ra_tag_scan_time = {self.camera1: datetime(1, 1, 1), self.camera2: datetime(1, 1, 1)}
 
         # dataframe to store variables for each walk and store in a csv
-        self.df_history = pd.DataFrame({'participantTag': [],
-                                        'startTime': [],
-                                        'startAntenna': [],
-                                        'cued': [],
-                                        'endTime': [],
-                                        'exitAntenna': [],
-                                        'recentScan': []
-                                        })
+        try:
+            self.df_history = pd.read_csv('output.csv')
+        except:
+            self.df_history = pd.DataFrame({'participantTag': [],
+                                            'startTime': [],
+                                            'startAntenna': [],
+                                            'cued': [],
+                                            'endTime': [],
+                                            'exitAntenna': [],
+                                            'recentScan': []
+                                            })
 
         # subscribe to the TagScan topic to receive information from the RFID receiver
         pub.subscribe(self.rfid_receiver, 'TagScan')
@@ -67,8 +70,9 @@ class PeripheralManager:
                         (now - temp_active_recordings[tag]['startTime']).total_seconds())))
                     print('{0} endTime: {1}'.format(tag, temp_active_recordings[tag]['endTime']))
                     '''
-                    if abs((now - temp_active_recordings[tag]['startTime']).total_seconds()) > self.walk_timeout:
-                        self.stop_record(None, tag)
+                    if (abs((now - temp_active_recordings[tag]['startTime']).total_seconds()) > self.walk_timeout) \
+                        and temp_active_recordings[tag]['endTime'] is None:
+                            self.stop_record(None, tag)
                     if temp_active_recordings[tag]['endTime'] is not None:
                         # print('{0} postEnd: {1}'.format(tag, abs(
                             # (now - temp_active_recordings[tag]['endTime']).total_seconds())))
@@ -84,11 +88,13 @@ class PeripheralManager:
         # if it's an RA tag, change all the walks recorded by the respective camera to cued walks if the recording
         # has begun within 5s of the RA tag scan
         if patient_id in self.ra_tags:
+            print('RA tag scanned')
             cam = self.antenna_cam_pair[antenna]
             self.ra_tag_scan_time[cam] = datetime.now()
             for recording in self.active_recordings:
                 if self.antenna_cam_pair[self.active_recordings[recording]['startAntenna']] == cam and \
                         abs((datetime.now() - self.active_recordings[recording]['startTime']).total_seconds()) < self.cue_timeout:
+                    print('setting recording to cued')
                     self.active_recordings[recording]['cued'] = True
             return
 
@@ -96,7 +102,7 @@ class PeripheralManager:
         if patient_id not in self.active_recordings:
             self.active_recordings[patient_id] = {'participantTag': patient_id, 'startTime': datetime.now(), 'startAntenna': antenna,
                                            'cued': False,
-                                           'endTime': None, 'exitAntenna': None, 'recentScan': datetime.now()}
+                                           'endTime': None, 'exitAntenna': -1, 'recentScan': datetime.now()}
             cam = self.antenna_cam_pair[antenna]
             if abs((self.ra_tag_scan_time[cam] - self.active_recordings[patient_id][
                 'startTime']).total_seconds()) < self.cue_timeout:
