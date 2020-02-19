@@ -13,6 +13,13 @@ class Webcam:
     def __init__(self, cam_id):
         self.cam_id = cam_id
         self.cap = cv2.VideoCapture(cam_id)
+
+        self.FRAME_WIDTH = 640
+        self.FRAME_HEIGHT = 480
+
+        self.cap.set(3, self.FRAME_WIDTH)
+        self.cap.set(4, self.FRAME_HEIGHT)
+
         self.q = Queue()
 
         self.vid_captures = {}
@@ -30,16 +37,19 @@ class Webcam:
         prev_time = time.time()
         while True:
             ret, frame = self.cap.read()
+            now = time.time()
+            # print(f'FPS {self.cam_id}: {1.0/(now - prev_time)}')
+            prev_time = now
+
             if not ret:
                 print('emtpy frame')
                 continue
             self.q.put(frame)
-            print(f'FPS {self.cam_id}: {1.0/(time.time() - prev_time)}')
-            prev_time = time.time()
         self.cap.release()
 
     def threaded_write(self):
         while True:
+            sleep(0.001)
             if not self.q.empty():
                 frame = self.q.get()
                 if self.vid_captures:
@@ -51,16 +61,16 @@ class Webcam:
         self.create_date_folder()
         file_name = self.generate_file_path(tag_id)
         print(file_name)
-        output = cv2.VideoWriter(file_name, self.vid_cod, 15.0, (640, 480))
+        output = cv2.VideoWriter(file_name, self.vid_cod, 30.0, (self.FRAME_WIDTH, self.FRAME_HEIGHT))
         self.vid_captures[tag_id] = output
-        print('Video captures:')
+        print(f'Camera {self.cam_id} video captures:')
         pprint(self.vid_captures)
 
     def stop_record(self, tag_id):
         try:
             self.vid_captures[tag_id].release()
             self.vid_captures.pop(tag_id, None)
-            print('Video captures:')
+            print(f'Camera {self.cam_id} video captures:')
             pprint(self.vid_captures)
         except KeyError:
             print('key error:', tag_id)
@@ -80,10 +90,11 @@ class Webcam:
 
 
 if __name__ == '__main__':
-    cam1 = Webcam(2)
-#     cam2 = Webcam(2)
+    cam1 = Webcam(0)
+    # cam2 = Webcam(2)
     sleep(1)
     cam1.start_record(20)
+    # cam2.start_record(18)
     sleep(5)
     cam1.stop_record(20)
-#     cam2.stop_record(18)
+    # cam2.stop_record(18)

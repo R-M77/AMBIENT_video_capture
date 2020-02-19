@@ -70,12 +70,12 @@ class UsbKeyboard:
 
                 if data == '\n':
                     print('data:', data_buffer.strip())
-                    if len(data_buffer) != 32:
+                    if len(data_buffer) != 27:
                         print('invalid tag data length')
-                    elif data_buffer[:12] == '300000000000' and data_buffer[20:28] == '65776642':
-                        antenna_number = int(data_buffer[29:31])
-                        patient_id = int(data_buffer[12:16])
-                        tag_number = int(data_buffer[16:20])
+                    elif data_buffer[:8] == '00000000' and data_buffer[16:24] == '65776642':
+                        antenna_number = int(data_buffer[24:26])
+                        patient_id = int(data_buffer[8:12])
+                        tag_number = int(data_buffer[12:16])
                         print('antenna number:', antenna_number)
                         print('patient id:', patient_id)
                         print('tag number:', tag_number)

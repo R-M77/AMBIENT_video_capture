@@ -9,12 +9,11 @@ from time import sleep
 class PeripheralManager:
     def __init__(self, timeout=60):
         # camera objects for the webcams
-        self.camera1 = Webcam(2)
-        self.camera2 = None
-        # self.camera2 = Webcam(2)
+        self.camera1 = Webcam(0)
+        self.camera2 = Webcam(2)
 
         # {antenna_number: webcam}
-        self.antenna_cam_pair = {0: self.camera1, 1: self.camera1, 2: self.camera2, 3: self.camera2}
+        self.antenna_cam_pair = {4: self.camera2, 8: self.camera2, 1: self.camera1, 2: self.camera1}
 
         # timeout for how long a participant has to walk across the hallway before the video is considered finished
         self.walk_timeout = timeout
@@ -71,8 +70,8 @@ class PeripheralManager:
                     if abs((now - temp_active_recordings[tag]['startTime']).total_seconds()) > self.walk_timeout:
                         self.stop_record(None, tag)
                     if temp_active_recordings[tag]['endTime'] is not None:
-                        print('{0} postEnd: {1}'.format(tag, abs(
-                            (now - temp_active_recordings[tag]['endTime']).total_seconds())))
+                        # print('{0} postEnd: {1}'.format(tag, abs(
+                            # (now - temp_active_recordings[tag]['endTime']).total_seconds())))
                         if abs((now - temp_active_recordings[tag][
                             'endTime']).total_seconds()) > self.repeated_scan_timeout:
                             self.df_history = self.df_history.append(self.active_recordings[tag], ignore_index=True)
