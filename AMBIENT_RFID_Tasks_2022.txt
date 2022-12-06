@@ -1,0 +1,22 @@
+AMBIENT_RFID_UHN
+
+Tasks done by Sam:
+- flow charts
+- Code for device/peripheral manager
+- Code for tag scanner
+- Algorithm for USB key logger module*
+- Logic for triggering cameras ON/OFF
+- Local storage of info (.csv file)
+
+Current tasks to be done:
+- RaspberryPi <-> PC communication
+- RaspberryPi <-> Scanner/Sensor communication
+- Linux SDK (JAVA/C++) - Scanner library used by RaspberryPi
+- Algorithm for handling edge cases
+--> multi-detect, exit scenarios, anamolies,etc.
+- Code for communication b/w scanner and cameras to trigger ON/OFF
+- Algorithms for transmitting data/captured frames to main processing PC
+
+NOTE:
+*USB key logger does not require physical keyboard attached
+	--> A virtual keyboard is used to log info
