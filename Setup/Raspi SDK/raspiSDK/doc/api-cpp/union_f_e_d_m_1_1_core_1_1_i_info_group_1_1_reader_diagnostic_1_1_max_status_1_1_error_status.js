@@ -1,0 +1,5 @@
+var union_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_max_status_1_1_error_status =
+[
+    [ "Flags", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_max_status_1_1_error_status_1_1_flags.html", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_max_status_1_1_error_status_1_1_flags" ],
+    [ "usError", "union_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_max_status_1_1_error_status.html#a1df0c3810a58150fef215a8486efaf77", null ]
+];

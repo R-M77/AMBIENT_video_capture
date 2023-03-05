@@ -1,0 +1,4 @@
+var namespace_f_e_d_m_1_1_core_1_1_reader_config_1_1_operating_mode_1_1_notification_mode_1_1_gate_pb17b6283baafc969a1c148fa8f55a233 =
+[
+    [ "IPv4", "namespace_f_e_d_m_1_1_core_1_1_reader_config_1_1_operating_mode_1_1_notification_mode_1_1_gate_pd5b23a045078148420c77447dc8fcdba.html", null ]
+];

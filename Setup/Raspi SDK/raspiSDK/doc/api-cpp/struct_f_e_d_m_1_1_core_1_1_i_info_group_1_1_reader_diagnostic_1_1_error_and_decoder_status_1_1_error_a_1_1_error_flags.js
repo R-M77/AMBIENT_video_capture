@@ -1,0 +1,7 @@
+var struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_a_1_1_error_flags =
+[
+    [ "bIOExpander", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_a_1_1_error_flags.html#a41d5d29c8453bcd392f69fe956cd4cb9", null ],
+    [ "bDCOut", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_a_1_1_error_flags.html#a822b57054f90230338f5d7a547d95b1e", null ],
+    [ "bUsbImax", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_a_1_1_error_flags.html#a6df4665b9d8418e1ffc3c1bc4268ca19", null ],
+    [ "bReserved", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_a_1_1_error_flags.html#ab5812a96c88043a05b579663ecad350d", null ]
+];

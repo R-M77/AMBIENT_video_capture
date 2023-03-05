@@ -1,0 +1,11 @@
+# Rule for Feig Leser
+# USB Leser
+
+
+ACTION!="add", GOTO="librfid_rules_end"
+SUBSYSTEM!="usb", GOTO="feig_rules_end"
+
+ATTR{product}=="OBID RFID-Reader", ATTR{manufacturer}=="FEIG ELECTRONIC GmbH", MODE:="666", GROUP="users", SYMLINK+="feig_$ATTR{serial}"
+ATTR{product}=="PAN RFID/SCANNER", ATTR{manufacturer}=="FEIG ELECTRONIC GmbH", MODE:="666", GROUP="users", SYMLINK+="feig_$ATTR{serial}"
+
+LABEL="feig_rules_end"

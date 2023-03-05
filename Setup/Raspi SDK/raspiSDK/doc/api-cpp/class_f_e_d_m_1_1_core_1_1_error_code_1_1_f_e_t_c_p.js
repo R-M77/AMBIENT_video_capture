@@ -1,0 +1,25 @@
+var class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p =
+[
+    [ "NEW_SOCKET_FAILURE", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a4702c0211e36b5721991defc3736c44b", null ],
+    [ "EMPTY_LIST", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a797eb3ad14840571c42b177a39eca57f", null ],
+    [ "POINTER_IS_NULL", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#aef7100c934cfad19390f7e4059d38608", null ],
+    [ "NO_MEMORY", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a5682e3a38b6862c1613f8526171f8882", null ],
+    [ "SERVER_NOT_FOUND", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a8f4a94c6631ced34eb9e600f8a12bddb", null ],
+    [ "NO_CONNECTION", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a3dd4baaf49eb2a7805967ac7f83bd75c", null ],
+    [ "SERVER_ADDRESS", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a3c3a3a7c71e990aca425987181b1f1c2", null ],
+    [ "CLOSE_CONNECTION", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a23c384a8a23d623ec4f70b2b122eb9db", null ],
+    [ "UNKNOWN_HANDLE", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a2f3055376e497af316bd5d9b51e61e7a", null ],
+    [ "HANDLE_IS_NULL", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a94efe388c217fc445d348531fc65ec8a", null ],
+    [ "HANDLE_IS_NEGATIVE", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a01c2214c8ddac06f109f87e62dc47f8f", null ],
+    [ "NO_HANDLE_FOUND", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a20a7b93a187549784a2f496beae90638", null ],
+    [ "TIMEOUT", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a5c3201f58dffb6aabb9dbddeea8b9219", null ],
+    [ "RECEIVE_PROCESS", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#ae1ee20379d7ae86368c0bfbee8ac944d", null ],
+    [ "CHANGE_SOCKET_PARA", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#af46383527ef055540eca4af363587cb9", null ],
+    [ "TRANSMIT_PROCESS", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a95f214960fb6916e9b27c12639ec7769", null ],
+    [ "GET_CONNECTION_STATE", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#abbb337b77364290520bba019442b5f63", null ],
+    [ "UNKNOWN_PARAMETER", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#adcf449d6dc7529eb54d3a46d6fac2b6a", null ],
+    [ "PARAMETER_OUT_OF_RANGE", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a6574449a5c380c068a1d29911b6fea93", null ],
+    [ "ODD_PARAMETER_STRING", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a69d0ae978859c0ef6b72c63724dc1853", null ],
+    [ "UNKNOWN_ERRORCODE", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a8760a7fd1e7a08454bac7ca232a9d77d", null ],
+    [ "BUFFER_OVERFLOW", "class_f_e_d_m_1_1_core_1_1_error_code_1_1_f_e_t_c_p.html#a64fff8cc50f45a8c70c6dde545b2dc04", null ]
+];

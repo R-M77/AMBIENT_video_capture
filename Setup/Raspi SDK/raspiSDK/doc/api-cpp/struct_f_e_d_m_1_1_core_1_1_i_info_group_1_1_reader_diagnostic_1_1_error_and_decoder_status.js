@@ -1,0 +1,6 @@
+var struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status =
+[
+    [ "ErrorA", "union_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_a.html", "union_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_a" ],
+    [ "ErrorB", "union_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_b.html", "union_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_error_b" ],
+    [ "isValid", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status.html#a94a4140ddf923db2ec5579b3f4f20a0c", null ]
+];

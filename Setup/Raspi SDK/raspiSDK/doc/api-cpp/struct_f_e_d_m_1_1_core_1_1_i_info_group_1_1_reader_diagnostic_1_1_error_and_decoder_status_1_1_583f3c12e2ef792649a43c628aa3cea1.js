@@ -1,0 +1,10 @@
+var struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_583f3c12e2ef792649a43c628aa3cea1 =
+[
+    [ "bReserved1", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_583f3c12e2ef792649a43c628aa3cea1.html#a8bb131816a4b9eed844669be7e063ca5", null ],
+    [ "bTriggerLockStatus", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_583f3c12e2ef792649a43c628aa3cea1.html#adbe3ac7ad1da0eecd0f9eb8c52769d46", null ],
+    [ "bBarcode", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_583f3c12e2ef792649a43c628aa3cea1.html#a6ddd88e2107e0fb98225d7055f202c13", null ],
+    [ "bWiFiBluetooth", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_583f3c12e2ef792649a43c628aa3cea1.html#a227855bf1be08f8be5d746374a11f18b", null ],
+    [ "bAccelerationSensor", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_583f3c12e2ef792649a43c628aa3cea1.html#a9eefb1149021a1c2edc08ce35a461cfb", null ],
+    [ "bBattery", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_583f3c12e2ef792649a43c628aa3cea1.html#a0b077805f69ab912dbcbc05a22ee21ba", null ],
+    [ "bReserved2", "struct_f_e_d_m_1_1_core_1_1_i_info_group_1_1_reader_diagnostic_1_1_error_and_decoder_status_1_1_583f3c12e2ef792649a43c628aa3cea1.html#a88eafb3831fce7d15a365d7d9097fe5e", null ]
+];
