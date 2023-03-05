@@ -97,7 +97,7 @@ class UsbKeyboard:
         usb.util.release_interface(self.dev, self.interface)
         self.dev.attach_kernel_driver(self.interface)
 
-'''
+# '''
 def listener(antenna, patient_id):
     print(f'Antenna: {antenna}, Patient ID: {patient_id}')
 
@@ -121,4 +121,5 @@ if __name__ == '__main__':
     scanner.simulate_scan(25645, 121)
     scanner.simulate_scan(12, 5660)
     sleep(3)
-'''
+    print('done')
+# '''
