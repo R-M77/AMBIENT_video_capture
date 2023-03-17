@@ -1,0 +1,17 @@
+UHN Checklist
+
+Please see below checklist for a summary of the progress, so far: 
+- RaspberryPi <-> PC communication - DONE 
+- Raspberry pi SDK (C/C++) - Scanner library used by RaspberryPi - INSTALLED/WORKING 
+- Algorithm for handling edge cases - DONE -- Needs testing
+   --> multi-detect, exit scenarios, anomalies, etc. 
+- Code for communication b/w scanner and cameras to trigger ON/OFF - DONE  -- Have not been tested
+- RaspberryPi <-> Scanner/Sensor communication - IN PROGRESS 
+- Algorithms for transmitting data/captured frames to main processing PC - IN PROGRESS -- Most likely need to setup during on-site testing
+
+
+Rremaining:
+- Testing
+- Cleaning up codebase and consolidation of Sam's work & mine (after testing)
+- Documentations for setup and operations (SOP)
+
